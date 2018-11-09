@@ -50,3 +50,9 @@ SETX /M COMPOSE_CONVERT_WINDOWS_PATHS=true
 ```
 choco install -y minikube
 ```
+10. Configure git identity
+
+```
+git config --global user.name "Khemara Chuon"
+git config --global user.email 44907753+khemarachuon@users.noreply.github.com
+```
