@@ -45,14 +45,59 @@ SETX /M DOCKER_CERT_PATH=%HOMEDRIVE%%HOMEPATH%\.docker\machine\machines\default
 SETX /M DOCKER_MACHINE_NAME=default
 SETX /M COMPOSE_CONVERT_WINDOWS_PATHS=true
 ```
-9. Install [Minikube](https://chocolatey.org/packages/Minikube)
+9. Add host entry
+
+```
+SET NEWLINE=^& echo.
+SET DOCKER_HOST_IP=^& docker-machine ip default
+FIND /C /I "docker-machine" %WINDIR%\system32\drivers\etc\hosts
+IF %ERRORLEVEL% NEQ 0 ECHO %NEWLINE%^%DOCKER_HOST_IP% docker-machine >> %WINDIR%\System32\drivers\etc\hosts
+```
+10. Install [Minikube](https://chocolatey.org/packages/Minikube)
 
 ```
 choco install -y minikube
 ```
-10. Configure git identity
+11. Configure git identity
 
 ```
 git config --global user.name "Khemara Chuon"
 git config --global user.email 44907753+khemarachuon@users.noreply.github.com
+git config --global core.autocrlf false
+```
+
+# Startup Windows development environment
+1. Start docker-machine
+
+```
+docker-machine start
+```
+2. Start minikube
+
+```
+minikube start
+```
+
+# Shutdown Windows development environment
+1. Stop minikube
+
+```
+minikube stop
+```
+2. Stop docker-machine
+
+```
+docker-machine stop
+```
+
+# Cleanup containers and images
+1. Cleanup stopped containers
+
+```
+FOR /F %I IN ('docker ps -a -q') DO docker rm %~I
+```
+2. Cleanup dangling images
+
+```
+docker image prune -f
 ```
