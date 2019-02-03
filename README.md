@@ -69,6 +69,10 @@ choco install -y minikube
 ```
 choco install -y minishift
 ```
+  Configure minishift
+```
+minishift config set vm-driver virtualbox
+```
 12. Configure git identity
 
 ```
