@@ -34,18 +34,27 @@ SETX /M PATH=%PATH$:%CONDA_HOME%\Scripts:%CONDA_HOME%
 ```
 conda create --name py37 python=3.7 --yes
 ```
-7. Install [VirtualBox](https://chocolatey.org/packages/virtualbox)
+  Upgrade packages
+```
+pip install --upgrade pip setuptools
+```
+7. Install [Visual Studio 2017 Build Tools](https://chocolatey.org/packages/visualstudio2017buildtools)
+
+```
+choco install -y choco install visualstudio2017buildtools
+```
+8. Install [VirtualBox](https://chocolatey.org/packages/virtualbox)
 
 ```
 choco install -y virtualbox
 ```
-8. Install [Docker Toolbox](https://chocolatey.org/packages/docker-toolbox)
+9. Install [Docker Toolbox](https://chocolatey.org/packages/docker-toolbox)
 
 ```
 choco install -y docker-toolbox
 docker-machine create --driver virtualbox default
 ```
-9. Set system environment variables
+10. Set system environment variables
 
   Print environment variables needed to connect to the default docker machine.
 ```
@@ -59,12 +68,12 @@ SETX /M DOCKER_CERT_PATH=%HOMEDRIVE%%HOMEPATH%\.docker\machine\machines\default
 SETX /M DOCKER_MACHINE_NAME=default
 SETX /M COMPOSE_CONVERT_WINDOWS_PATHS=true
 ```
-10. Install [Minikube](https://chocolatey.org/packages/Minikube)
+11. Install [Minikube](https://chocolatey.org/packages/Minikube)
 
 ```
 choco install -y minikube
 ```
-11. Install [Minishift](https://chocolatey.org/packages/minishift)
+12. Install [Minishift](https://chocolatey.org/packages/minishift)
 
 ```
 choco install -y minishift
@@ -73,7 +82,12 @@ choco install -y minishift
 ```
 minishift config set vm-driver virtualbox
 ```
-12. Configure git identity
+13. Install [LocalStack](https://pypi.org/project/localstack)
+
+```
+pip install coverage===4.0.3 urllib3===1.22 localstack
+```
+14. Configure git identity
 
 ```
 git config --global user.name "Khemara Chuon"
