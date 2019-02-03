@@ -20,18 +20,23 @@ choco install -y maven
 ```
 choco install -y eclipse
 ```
-6. Install [VirtualBox](https://chocolatey.org/packages/virtualbox)
+6. Install [Miniconda](https://chocolatey.org/packages/miniconda3)
+
+```
+choco install -y miniconda3
+```
+7. Install [VirtualBox](https://chocolatey.org/packages/virtualbox)
 
 ```
 choco install -y virtualbox
 ```
-7. Install [Docker Toolbox](https://chocolatey.org/packages/docker-toolbox)
+8. Install [Docker Toolbox](https://chocolatey.org/packages/docker-toolbox)
 
 ```
 choco install -y docker-toolbox
 docker-machine create --driver virtualbox default
 ```
-8. Set system environment variables
+9. Set system environment variables
 
   Print environment variables needed to connect to the default docker machine.
 ```
@@ -45,12 +50,17 @@ SETX /M DOCKER_CERT_PATH=%HOMEDRIVE%%HOMEPATH%\.docker\machine\machines\default
 SETX /M DOCKER_MACHINE_NAME=default
 SETX /M COMPOSE_CONVERT_WINDOWS_PATHS=true
 ```
-9. Install [Minikube](https://chocolatey.org/packages/Minikube)
+10. Install [Minikube](https://chocolatey.org/packages/Minikube)
 
 ```
 choco install -y minikube
 ```
-10. Configure git identity
+11. Install [Minishift](https://chocolatey.org/packages/minishift)
+
+```
+choco install -y minishift
+```
+12. Configure git identity
 
 ```
 git config --global user.name "Khemara Chuon"
