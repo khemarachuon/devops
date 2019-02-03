@@ -25,6 +25,15 @@ choco install -y eclipse
 ```
 choco install -y miniconda3
 ```
+  Set the system environment variables
+```
+SETX /M CONDA_HOME=C:\tools\miniconda3
+SETX /M PATH=%PATH$:%CONDA_HOME%\Scripts:%CONDA_HOME%
+```
+  Create virtual environment
+```
+conda create --name py37 python=3.7 --yes
+```
 7. Install [VirtualBox](https://chocolatey.org/packages/virtualbox)
 
 ```
